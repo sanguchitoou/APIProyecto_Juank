@@ -1,5 +1,7 @@
 //Importamos el APP de nuestro archivo
 import app from "./app.js";
+//Importamos la DB
+import "./database.js";
 
 //Creamos una funcion para ejecutar el servidor
 async function main (){
