@@ -9,8 +9,8 @@ import productsModel from "../models/products.js";
 productsController.getProducts = async (request, response) =>{
     const products = await productsModel.find();
     //Devolvemos la respuesta
-    response.json(products)
-}
+    response.json(products);
+};
 
 //Realizamos el INSERT
 //Creamos una función asíncrona que recibirá la REQUEST y la RESPONSE
@@ -21,8 +21,8 @@ productsController.insertProducts = async (request, response) =>{
     //Guardamos en la base de datos
     await newProduct.save()
     //Imprimimos la respuesta
-    response.json({message: "Producto guardado existosamente"})
-}
+    response.json({message: "Producto guardado existosamente"});
+};
 
 //Realizamos el UPDATE
 //Creamos una función asíncrona que recibirá la REQUEST y la RESPONSE
@@ -36,13 +36,16 @@ productsController.updateProducts = async (request, response) =>{
         stock
     }, {new: true});
     //Imprimimos la respuesta
-    response.json({message: "Producto actualizado existosamente"})
-}
+    response.json({message: "Producto actualizado existosamente"});
+};
 
 //Realizamos el DELETE
 productsController.deleteProducts = async (request, response) => {
     //Esperamos la respuesta de la busqueda por ID mediante el método de eliminación
     await productsModel.findByIdAndDelete(request.params.id);
     //Eliminamos el registro
-    response.json({ message: "Producto eliminado exitosamente" })
-}
+    response.json({ message: "Producto eliminado exitosamente" });
+};
+
+//Exportamos TODO
+export default productsController;
