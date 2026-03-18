@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
+import {config} from "./config.js"
 
 //Cadena de conexión hacia MongoDB
-mongoose.connect("mongodb://localhost:27017/megapacaDB");
+mongoose.connect(config.db.URI);
 
 //Creamos una constante para ver si realmente nos conectamos a MongoDB
 const connection = mongoose.connection;
