@@ -15,12 +15,12 @@ employeesController.getEmployees = async (request, response) => {
 //Realizamos el INSERT
 //Creamos una función asíncrona que recibirá la REQUEST y la RESPONSE
 employeesController.inserEmployees = async (request, response) => {
-  const { name, lastname, salary, DUI, phone, email, password, idBranches } =
+  const { name, lastName, salary, DUI, phone, email, password, idBranches } =
     request.body;
   //Llenamos la instancia con el schema creado
   const newEmployee = new employeesModel({
     name,
-    lastname,
+    lastName,
     salary,
     DUI,
     phone,
@@ -37,14 +37,14 @@ employeesController.inserEmployees = async (request, response) => {
 //Realizamos el UPDATE
 //Creamos una función asíncrona que recibirá la REQUEST y la RESPONSE
 employeesController.updateEmployees = async (request, response) => {
-  const { name, lastname, salary, DUI, phone, email, password, idBranches } =
+  const { name, lastName, salary, DUI, phone, email, password, idBranches } =
     request.body;
   //Actualizamos el registro por ID
   await employeesModel.findByIdAndUpdate(
     request.params.id,
     {
       name,
-      lastname,
+      lastName,
       salary,
       DUI,
       phone,
