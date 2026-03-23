@@ -9,7 +9,7 @@ import productsModel from "../models/products.js";
 productsController.getProducts = async (request, response) =>{
     const products = await productsModel.find();
     //Devolvemos la respuesta
-    response.json(products);
+    response.json(products);d
 };
 
 //Realizamos el INSERT
