@@ -4,7 +4,7 @@ const reviewsController = {};
 //Importamos el Schema de la colección que vamos a utilizar
 import reviewsModel from "../models/reviews.js";
 
-//Realizamos el SELECTd
+//Realizamos el SELECT
 //Creamos una función asíncrona que recibirá la REQUEST y la RESPONSE
 reviewsController.getReviews = async (request, response) => {
   const reviews = await reviewsModel.find();

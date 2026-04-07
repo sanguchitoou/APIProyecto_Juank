@@ -4,6 +4,7 @@ import productRoutes from "./src/routes/products.js";
 import branchesRoutes from "./src/routes/branches.js";
 import employeesRoutes from "./src/routes/employees.js";
 import reviewsRoutes from "./src/routes/reviews.js";
+import customersRouters from "./src/routes/customers.js";
 
 //Crear una constante que guarda la instancia EXPRESS
 const app = express();
@@ -16,6 +17,10 @@ app.use("/api/products", productRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/employees", employeesRoutes);
 app.use("/api/reviews", reviewsRoutes);
+app.use("/api/customers", customersRouters);
+
+//ENDPOINTS ESPECIALES
+app.use("/api/registerCustomers");
 
 //Exportamos la función EXPRESS
 export default app;
