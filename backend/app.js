@@ -5,9 +5,14 @@ import branchesRoutes from "./src/routes/branches.js";
 import employeesRoutes from "./src/routes/employees.js";
 import reviewsRoutes from "./src/routes/reviews.js";
 import customersRouters from "./src/routes/customers.js";
+import registerCustomerController from "./src/routes/registerCustomer.js";
+import cookieParser from "cookie-parser";
 
 //Crear una constante que guarda la instancia EXPRESS
 const app = express();
+
+//Utilizamos la librería de las cookies para utilizarlas
+app.use(cookieParser());
 
 //Hacemos que acepte los JSON de donde sea
 app.use(express.json());
@@ -20,7 +25,7 @@ app.use("/api/reviews", reviewsRoutes);
 app.use("/api/customers", customersRouters);
 
 //ENDPOINTS ESPECIALES
-app.use("/api/registerCustomers");
+app.use("/api/registerCustomers", registerCustomerController);
 
 //Exportamos la función EXPRESS
 export default app;
