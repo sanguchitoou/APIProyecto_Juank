@@ -12,28 +12,6 @@ employeesController.getEmployees = async (request, response) => {
   response.json(employees);
 };
 
-//Realizamos el INSERT
-//Creamos una función asíncrona que recibirá la REQUEST y la RESPONSE
-employeesController.inserEmployees = async (request, response) => {
-  const { name, lastName, salary, DUI, phone, email, password, idBranches } =
-    request.body;
-  //Llenamos la instancia con el schema creado
-  const newEmployee = new employeesModel({
-    name,
-    lastName,
-    salary,
-    DUI,
-    phone,
-    email,
-    password,
-    idBranches,
-  });
-  //Guardamos en la base de datos
-  await newEmployee.save();
-  //Imprimimos la respuesta
-  response.json({ message: "Empleado guardada existosamente" });
-};
-
 //Realizamos el UPDATE
 //Creamos una función asíncrona que recibirá la REQUEST y la RESPONSE
 employeesController.updateEmployees = async (request, response) => {
