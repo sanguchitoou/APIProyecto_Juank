@@ -1,8 +1,8 @@
-//Creamos un array de métodos DENTRO de la carpeta controlador
-const employeesController = {};
-
 //Importamos el Schema de la colección que vamos a utilizar
 import employeesModel from "../models/employees.js";
+
+//Creamos un array de métodos DENTRO de la carpeta controlador
+const employeesController = {};
 
 //Realizamos el SELECT
 //Creamos una función asíncrona que recibirá la REQUEST y la RESPONSE

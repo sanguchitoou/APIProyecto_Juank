@@ -1,8 +1,8 @@
-//Creamos un array de métodos DENTRO de la carpeta controlador
-const branchesController = {};
-
 //Importamos el Schema de la colección que vamos a utilizar
 import branchesModel from "../models/branches.js";
+
+//Creamos un array de métodos DENTRO de la carpeta controlador
+const branchesController = {};
 
 //Realizamos el SELECT
 //Creamos una función asíncrona que recibirá la REQUEST y la RESPONSE
