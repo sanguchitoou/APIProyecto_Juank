@@ -54,6 +54,10 @@ loginCustomerController.login = async (request, response) => {
           .status(403)
           .json({ message: "Usuario bloqueado temporalmente" });
       }
+
+      //Guardamos el número de intentos de inicio de sesión en la base de datos
+      await customerFound.save();
+      return response.status(400).json({ message: "Contraseña incorrecta" });
     }
 
     //Reseteamos los intentos de inicio de sesión y el tiempo de bloqueo si la contraseña es correcta
