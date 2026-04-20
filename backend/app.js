@@ -11,13 +11,21 @@ import registerAdminController from "./src/routes/registerAdmin.js";
 import customerLoginRoutes from "./src/routes/customerLogin.js";
 import logout from "./src/routes/logout.js"
 import cookieParser from "cookie-parser";
+//Importamos para usar CORS
+import cors from "cors";
 
 //Crear una constante que guarda la instancia EXPRESS
 const app = express();
 
 //Utilizamos la librería de las cookies para utilizarlas
 app.use(cookieParser());
-
+//Utilizamos la librería de CORS para utilizarlas
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "http://localhost:5174"
+    ], credentials: true
+}))
 //Hacemos que acepte los JSON de donde sea
 app.use(express.json());
 
