@@ -18,7 +18,7 @@ const productsSchema = new Schema(
   },
   {
     timestamps: true,
-    strick: false,
+    strict: false,
   },
 );
 

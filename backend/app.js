@@ -10,6 +10,7 @@ import registerEmployeeController from "./src/routes/registerEmployee.js";
 import registerAdminController from "./src/routes/registerAdmin.js";
 import customerLoginRoutes from "./src/routes/customerLogin.js";
 import recoveryPassword from "./src/routes/recoveryPassword.js";
+import providersRouters from "./src/routes/providers.js";
 import logout from "./src/routes/logout.js";
 import cookieParser from "cookie-parser";
 //Importamos para usar CORS
@@ -36,6 +37,8 @@ app.use("/api/branches", branchesRoutes);
 app.use("/api/employees", employeesRoutes);
 app.use("/api/reviews", reviewsRoutes);
 app.use("/api/customers", customersRouters);
+//ESTE ENDPOINT CONTIENE CLOUDINARY
+app.use("/api/providers", providersRouters)
 
 //ENDPOINTS ESPECIALES
 app.use("/api/registerCustomers", registerCustomerController);

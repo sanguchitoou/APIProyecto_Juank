@@ -20,7 +20,7 @@ const reviewsSchema = new Schema(
   },
   {
     timestamps: true,
-    strick: false,
+    strict: false,
   },
 );
 

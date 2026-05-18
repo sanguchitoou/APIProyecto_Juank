@@ -18,7 +18,7 @@ const adminSchema = new Schema(
   },
   {
     timestamps: true,
-    strick: false,
+    strict: false,
   },
 );
 

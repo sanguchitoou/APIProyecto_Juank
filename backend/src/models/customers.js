@@ -30,7 +30,7 @@ const customersSchema = new Schema(
   },
   {
     timestamps: true,
-    strick: false,
+    strict: false,
   },
 );
 

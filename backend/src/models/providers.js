@@ -1,22 +1,24 @@
 //Aca irán los campos que se utilizarán en modelos según la colección en Mongo
 import { Schema, model } from "mongoose";
 
-const productsSchema = new Schema({
+const providersSchema = new Schema({
     name:{
         type: String
     },
-    description:{
+    phone:{
         type: String
     },
-    price:{
-        type: Number
+    image:{
+        type: String
     },
-    stock:{
-        type: Number
+    //Poder borrar la imagen de cloudinary
+    public_id:{
+        type: String
     },
-}, {
+}, 
+{
     timestamps: true,
     strict: false
 })
 
-export default model("products", productsSchema)
+export default model("providers", providersSchema)

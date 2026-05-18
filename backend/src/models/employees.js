@@ -31,7 +31,7 @@ const employeesSchema = new Schema(
   },
   {
     timestamps: true,
-    strick: false,
+    strict: false,
   },
 );
 
