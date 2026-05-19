@@ -15,9 +15,14 @@ import logout from "./src/routes/logout.js";
 import cookieParser from "cookie-parser";
 //Importamos para usar CORS
 import cors from "cors";
+//Importamos el limiter evitando ataques DDOS
+import limiter from "./src/middlewares/limiter.js";
 
 //Crear una constante que guarda la instancia EXPRESS
 const app = express();
+
+//Usamos el limiter
+app.use(limiter);
 
 //Utilizamos la librería de las cookies para utilizarlas
 app.use(cookieParser());
@@ -38,7 +43,7 @@ app.use("/api/employees", employeesRoutes);
 app.use("/api/reviews", reviewsRoutes);
 app.use("/api/customers", customersRouters);
 //ESTE ENDPOINT CONTIENE CLOUDINARY
-app.use("/api/providers", providersRouters)
+app.use("/api/providers", providersRouters);
 
 //ENDPOINTS ESPECIALES
 app.use("/api/registerCustomers", registerCustomerController);

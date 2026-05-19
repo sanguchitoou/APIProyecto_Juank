@@ -6,13 +6,23 @@ import productsController from "../controllers/products.js";
 const router = express.Router();
 
 //Router tiene todos los MÉTODOS HTTP
-router.route("/")
-.get(productsController.getProducts)
-.post(productsController.insertProducts);
+router
+  .route("/")
+  .get(productsController.getProducts)
+  .post(productsController.insertProducts);
 
-//Por ID
-router.route("/:id")
-.put(productsController.updateProducts)
-.delete(productsController.deleteProducts);
+//Router que tiene los GET PERSONALIZADOS
+router.route("/lowStock").get(productsController.getProductLowStock);
+router.route("/priceRange").post(productsController.getProductByPriceRange);
+router.route("/countProduct").get(productsController.getCountProducts);
+router.route("/searchProduct").post(productsController.getSearchByName);
+
+//Por ID, ACÁ SÍ importa el orden
+router
+  .route("/:id")
+  //Único GET por ID dentro del route
+  .get(productsController.getProductById)
+  .put(productsController.updateProducts)
+  .delete(productsController.deleteProducts);
 
 export default router;
