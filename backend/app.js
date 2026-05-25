@@ -11,6 +11,7 @@ import registerAdminController from "./src/routes/registerAdmin.js";
 import customerLoginRoutes from "./src/routes/customerLogin.js";
 import recoveryPassword from "./src/routes/recoveryPassword.js";
 import providersRouters from "./src/routes/providers.js";
+import shoppingCartRoutes from "./src/routes/shoppingCart.js";
 import logout from "./src/routes/logout.js";
 import cookieParser from "cookie-parser";
 //Importamos para usar CORS
@@ -39,6 +40,7 @@ app.use(express.json());
 /* ACA VAN TODOS LOS ENDPOINTS!!! */
 app.use("/api/products", productRoutes);
 app.use("/api/branches", branchesRoutes);
+app.use("/api/shoppingCart", shoppingCartRoutes);
 app.use("/api/employees", employeesRoutes);
 app.use("/api/reviews", reviewsRoutes);
 app.use("/api/customers", customersRouters);
