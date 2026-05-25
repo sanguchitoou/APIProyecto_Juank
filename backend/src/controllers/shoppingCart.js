@@ -1,5 +1,6 @@
 //Importamos el Schema de la colección que vamos a utilizar
 import shoppingCart from "../models/shoppingCart.js";
+import productsModel from "../models/products.js";
 
 //Creamos un array de métodos DENTRO de la carpeta controlador
 const shoppingCartController = {};
@@ -39,34 +40,30 @@ shoppingCartController.insertShoppingCarts = async (request, response) => {
   const { customerId, products, status } = request.body;
 
   //Variable para guardar el total
-  const total = /* products.reduce((acc, product) => acc + product.price * product.quantity, 0); */ 0;
+  let total = /* products.reduce((acc, product) => acc + product.price * product.quantity, 0); */ 0;
 
   //Arreglo para productos
   const newProducts = [];
   //Iteramos sobre los productos para llenar el arreglo
 
-  for (let i = 0; i < customerId.products.length; i++) {
+  for (let i = 0; i < products.length; i++) {
     //Consultamos el producto por ID para obtener su precio
-    const productFound = await shoppingCart.findById(
-      customerId.products[i].productId,
-    );
+    const productFound = await productsModel.findById(products[i].productId);
     //Calculamos el subtotal del producto
-    const subtotal = productFound.price * customerId.products[i].quantity;
+    const subtotal = productFound.price * products[i].quantity;
     //Sumamos el subtotal al total
     total += subtotal;
     //Si no se encuentra el producto, devolvemos un mensaje de error
     if (!productFound) {
-      return response
-        .status(404)
-        .json({
-          message: `Producto con ID ${customerId.products[i].productId} no encontrado`,
-        });
+      return response.status(404).json({
+        message: `Producto con ID ${products[i].productId} no encontrado`,
+      });
     }
 
     //Llenamos el arreglo de productos con la información necesaria
     newProducts.push({
-      productId: customerId.products[i].productId,
-      quantity: customerId.products[i].quantity,
+      productId: products[i].productId,
+      quantity: products[i].quantity,
       subtotal: subtotal,
     });
   }
@@ -96,28 +93,24 @@ shoppingCartController.updateShoppingCarts = async (request, response) => {
   const newProducts = [];
   //Iteramos sobre los productos para llenar el arreglo
 
-  for (let i = 0; i < customerId.products.length; i++) {
+  for (let i = 0; i < products.length; i++) {
     //Consultamos el producto por ID para obtener su precio
-    const productFound = await shoppingCart.findById(
-      customerId.products[i].productId,
-    );
+    const productFound = await productsModel.findById(products[i].productId);
     //Calculamos el subtotal del producto
-    const subtotal = productFound.price * customerId.products[i].quantity;
+    const subtotal = productFound.price * products[i].quantity;
     //Sumamos el subtotal al total
     total += subtotal;
     //Si no se encuentra el producto, devolvemos un mensaje de error
     if (!productFound) {
-      return response
-        .status(404)
-        .json({
-          message: `Producto con ID ${customerId.products[i].productId} no encontrado`,
-        });
+      return response.status(404).json({
+        message: `Producto con ID ${customerId.products[i].productId} no encontrado`,
+      });
     }
 
     //Llenamos el arreglo de productos con la información necesaria
     newProducts.push({
-      productId: customerId.products[i].productId,
-      quantity: customerId.products[i].quantity,
+      productId: products[i].productId,
+      quantity: products[i].quantity,
       subtotal: subtotal,
     });
   }
